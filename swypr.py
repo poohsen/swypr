@@ -4,10 +4,12 @@ import socket
 from servo import HS475HB 
 
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-serversocket.bind(('192.168.2.11', 8089))
+serversocket.bind(('0.0.0.0', 8089))
 serversocket.listen(5) # become a server socket, maximum 5 connections
 
 servo = HS475HB()
+
+print "Setting servo to neutral"
 servo.neutral()
 
 while True:
